@@ -26,4 +26,33 @@ Algunas herramientas que nos ayudan a optimizar nuestras imágenes son:
 - [Picresize](https://picresize.com/) Cambia el tamaño de la imágen.
 - [Convertio](https://convertio.co/es/jpg-svg/) Convertir de un formato a otro.
 
+## Renderizar imágenes
+La forma correcta semánticamente de renderizar una imagen con un contenedor y un título / subtítulo es de la siguiente forma:
+
+```html
+<figure>
+  <img src="./path/to/kittens.jpg" alt="Picture of kittens">
+  <figcaption>This is a picture of kittens🐈</figcaption>
+</figure>
+```
+
+## Videos
+Podemos renderizar videos dentro de nuestra página de la siguiente forma:
+
+```html
+<video src="" controls preload="auto"></video>
+```
+
+Sin embargo, no todos los navegadores entienden todos los formatos de video, por lo que podemos proporcionar más de una opción de video con diferentes formatos, dejando que el navegador decida cuál utilizar. Para lograr esto debemos omitir el atributo _src_ y dentro de la etiqueta `<video></video>` colocar nuestras fuentes con una etiqueta `<source src="" />`
+```html
+<video controls preload="auto">
+  <source src="formato1.mp4" />
+  <source src="formato2.m4v" />
+</video>
+```
+
+También podemos indicar el segundo de inicio y fin para la reproducción del video de la siguiente forma:
+```html
+<video src="video1.mp4#t=10,60" controls preload="auto"></video>
+```
 
