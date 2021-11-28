@@ -63,6 +63,46 @@ Existen diversas metodologías para nombrar nuestras clases de CSS y poder mante
 
 Una de las más utilizadas es la metodología [BEM](https://en.bem.info/methodology/faq/#why-bem).
 
+
+## Modelo de caja
+Los elementos renderizados en HTML son como cajas, las cuales están formadas por el contenido, padding, border y margin.
+
+Por ejemplo, si aplicamos el siguiente CSS:
+
+```css
+main {
+  width: 100%;
+  height: 500px;
+  border: 10px solid grey;
+  padding: 20px 35px;
+}
+```
+
+Nuestro modelo de caja se verá como en la siguiente imagen en una pantalla de 500px de ancho:
+
+![Box model before border box](img/before-border-box.PNG "Box model before border box")
+
+En la página ahora tendremos un scroll horizontal, pero ¿por qué?. En la regla css hemos definido que el width debe ser del 100%, sin embargo nuestra caja ocupa más que el 100% del ancho debido a que no toma en cuenta el padding y border que hemos definido como parte de la medida total, sino más bien como un extra.
+
+Si sumamos los valores del ancho del border, padding y content (10 + 35 + 484 + 35 + 10) obtendremos **574px** (Nuestra pantalla tiene 500px de ancho).
+
+Los navegadores agregan unos estílos por defecto a algunos elementos. Para solucionar nuestro problema (queremos eliminar el scroll horizontal), nos apoyaremos del selector global `*` de la siguiente forma:
+
+```css
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+```
+
+`box-sizing: border-box;` define que el ancho que indiquemos debe ser calculado tomando en cuenta el borde, padding y content; quedando nuestro modelo de caja de la siguiente forma:
+
+![Box model after border box](img/after-border-box.PNG "Box model after border box")
+
+Teniendo así, los 500px que tiene nuestra pantalla de ancho, logrando eliminar el scroll horizontal.
+
+
 ## Pseudo clases
 Definen el estílo de un estado especial de un elemento. Por ejemplo, `:hover` aplicará un estilo cuando el usuario haga hover sobre el elemento especificado por el selector.
 
