@@ -56,3 +56,21 @@ También podemos indicar el segundo de inicio y fin para la reproducción del vi
 <video src="video1.mp4#t=10,60" controls preload="auto"></video>
 ```
 
+# CSS
+## Pseudo clases
+Definen el estílo de un estado especial de un elemento. Por ejemplo, `:hover` aplicará un estilo cuando el usuario haga hover sobre el elemento especificado por el selector.
+
+Sintaxis: `:class`
+
+[Lista de pseudo clases](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes)
+
+
+## Pseudo elementos
+Definen el estílo de una parte específica de un elemento. Por ejemplo, el pseudoelemento `::first-line` selecciona solo la primera línea del elemento especificado por el selector.
+
+Sintaxis: `::element`
+
+[Lista de pseudo elementos](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements)
+
+
+
