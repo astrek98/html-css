@@ -131,3 +131,11 @@ Sintaxis: `::element`
 [Lista de pseudo elementos](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements)
 
 
+## Herencia
+Podemos heredar el valor de una propiedad de CSS del elemento padre por medio del keyword `inherit`.
+
+**inherit**: Es un valor permitido en todas las propiedades CSS. Hace que el elemento al cual se aplica tome el valor calculado de la propiedad de su elemento padre.
+
+**initial**: Cuando asignamos este valor a alguna propiedad, se asigna el valor inicial y predefinido por el navegador en cuestión.
+
+**unset**: Es una combinación entre _inherit_ e _initial_, cuando utilizamos este valor en una propiedad ésta tratará de heredar el valor de su elemento padre si está disponible, y utilizará el valor inicial en caso contrario.
