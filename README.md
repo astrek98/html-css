@@ -57,10 +57,22 @@ También podemos indicar el segundo de inicio y fin para la reproducción del vi
 ```
 
 # CSS
+
+## Nombrar clases CSS
+Existen diversas metodologías para nombrar nuestras clases de CSS y poder mantener un orden y mejorar el mantenimiento de nuestro sitio.
+
+Una de las más utilizadas es la metodología [BEM](https://en.bem.info/methodology/faq/#why-bem).
+
 ## Pseudo clases
 Definen el estílo de un estado especial de un elemento. Por ejemplo, `:hover` aplicará un estilo cuando el usuario haga hover sobre el elemento especificado por el selector.
 
 Sintaxis: `:class`
+
+```css
+.main-nav__item a:hover {
+  color: blue;
+}
+```
 
 [Lista de pseudo clases](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-classes)
 
@@ -70,7 +82,12 @@ Definen el estílo de una parte específica de un elemento. Por ejemplo, el pseu
 
 Sintaxis: `::element`
 
-[Lista de pseudo elementos](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements)
+```css
+.main-nav__item::after {
+  content: ' | ';
+}
+```
 
+[Lista de pseudo elementos](https://developer.mozilla.org/es/docs/Web/CSS/Pseudo-elements)
 
 
