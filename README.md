@@ -102,6 +102,19 @@ Las declaraciones al final del documento anularán a las que sucedan antes en ca
 
 Esto es importante tenerlo en cuenta, pues si importamos nuestros estílos antes de los estílos de un tercero, podrían reescribirse los nuestros.
 
+### Ejemplo de especificidad
+```css
+/* Los estílos de este selector serán los aplicados por tener mayor especificidad sumada (1,2,0) */
+.clase-1.clase-2#un-id {
+  color: red;
+}
+
+/* Especificidad: (1,0,0) */
+#un-id {
+  color: violet;
+}
+```
+
 ## Modelo de caja
 Los elementos renderizados en HTML son como cajas, las cuales están formadas por el contenido, padding, border y margin.
 
