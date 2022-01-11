@@ -64,6 +64,44 @@ Existen diversas metodologías para nombrar nuestras clases de CSS y poder mante
 Una de las más utilizadas es la metodología [BEM](https://en.bem.info/methodology/faq/#why-bem).
 
 
+## Especificidad y orden de declaración
+¿Cómo se controla el orden al declarar CSS?
+1. Importancia
+2. Especificidad
+3. Orden en las fuentes (etiquetas link)
+
+Si dos declaraciones tienen la misma _importancia_, la _especificidad_ de las reglas decidirá cuál se debe aplicar. Si las reglas tienen la misma especificidad, el orden de las fuentes controla el resultado final.
+
+### Importancia
+1. Estílos del navegador
+2. Declaraciones normales en hojas de estílo de autor (nuestro CSS)
+3. Declaraciones importantes en hojas de estílos de autor (Utilización del !important) **¡ESTO ES MUY MALA PRÁCTICA!**
+
+### Especificidad
+
+| Selector        | Especificidad   |
+| :-	            | :-:	            |
+| !important      | 1,0,0,0,0       |
+| Inline styles   | 0,1,0,0,0       |
+| #id             | 0,0,1,0,0       |
+| .class          | 0,0,0,1,0       |
+| tag             | 0,0,0,0,1       |
+
+Podemos usar más de un selector para una regla CSS, lo cuál le dará mayor especificidad.
+Existen herramientas como [codecaptain](https://www.codecaptain.io/tools/css-specificity-calculator) para calcular la especificidad de un selector.
+
+### Conflicto en declaraciones CSS
+Cuando el navegador encuentra un conflicto para aplicar los estílos, su algoritmo _cascade_ sigue el siguiente flujo para decidir qué regla aplicar:
+1. Declaraciones con _!important_
+2. Estílos en línea (inline styles)
+3. Selector con mayor especificidad
+4. Estílos del navegador
+
+### Orden de las fuentes
+Las declaraciones al final del documento anularán a las que sucedan antes en caso de conflicto.
+
+Esto es importante tenerlo en cuenta, pues si importamos nuestros estílos antes de los estílos de un tercero, podrían reescribirse los nuestros.
+
 ## Modelo de caja
 Los elementos renderizados en HTML son como cajas, las cuales están formadas por el contenido, padding, border y margin.
 
