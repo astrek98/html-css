@@ -190,3 +190,55 @@ Podemos heredar el valor de una propiedad de CSS del elemento padre por medio de
 **initial**: Cuando asignamos este valor a alguna propiedad, se asigna el valor inicial y predefinido por el navegador en cuestión.
 
 **unset**: Es una combinación entre _inherit_ e _initial_, cuando utilizamos este valor en una propiedad ésta tratará de heredar el valor de su elemento padre si está disponible, y utilizará el valor inicial en caso contrario.
+
+
+## Combinadores
+Permiten combinar múltiples selctores y crear una mayor especificidad.
+
+| Adjacent sibling        | General sibling   |
+| :-:	                    | :-:	              |
+| div + p {}              | div ~ p {}        |
+| **Child**               | **Descendant**    |
+| div > p {}              | div p {}          |
+
+### Ejemplos de combinadores
+```css
+/* Selecciona todas las etiquetas <p> que estén inmediatamente después de una etiqueta <div>.
+<div></div>
+<p>Me afecta</p>
+<h2></h2>
+<p>No me afecta</p> */
+div + p {
+  color: red;
+}
+
+/* Selecciona todas las etiquetas <p> que estén a la misma altura (hermanas) de una etiqueta <div> (No importa que tan lejos esté).
+<div></div>
+<h2></h2>
+<p>Me afecta</p>
+*/
+div ~ p {
+  color: red;
+}
+
+/* Selecciona todas las etiquetas <p> que sean hijas directas de una etiqueta <div>.
+<div>
+  <p>A mi me afecta</p>
+  <section>
+    <p>A mi no me afecta</p>
+  </section>
+</div> */
+div > p {
+  color: red;
+}
+
+/* Selecciona todas las etiquetas <p> que sean hijas de una etiqueta <div>, sin importan qué tan profundo estén.
+<div>
+  <section>
+    <p>Me afecta a cualquier nivel dentro del div</p>
+  </section>
+</div> */
+div p {
+  color: red;
+}
+```
