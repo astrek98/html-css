@@ -275,3 +275,54 @@ Existen dos tipos de medidas:
 |           | min-width /min-height  |
 |           | vw (viewport width)    |
 |           | vh (viewport height)   |
+
+### Medida em
+
+Esta es una medida cuyo valor será relativo al tamaño del primer padre con la misma propiedad.
+
+Por ejemplo, si tenemos el siguiente HTML y CSS:
+
+```html
+<body>
+  <main class="text-container">
+    <p>I'm a text!</p>
+    <div>
+      <p>I'm another text!</p>
+      <div>
+        <p>Another one text!</p>
+      </div>
+    </div>
+  </main>
+</body>
+```
+
+```css
+.text-container {
+  font-size: 1.5em;
+}
+```
+
+El tamaño de fuente de los textos será 24px, debido a que el primer padre de la etiqueta con la clase `.text-container` que declara un tamaño de fuente es `<html></html>` con 16px (por defecto del navegador).
+Nuestra clase `.text-container` tomará ese valor como referencia (1.5 \* 16px).
+
+Si asignamos un valor distinto a una etiqueta padre de nuestro selector de clase como por ejemplo:
+
+```css
+body {
+  font-size: 20px;
+}
+```
+
+El tamaño de fuente resultante será de 30px, ya que el primer padre con la propiedad font-size tiene 20px (1.5 \* 20)
+
+Pero **em** puede provocar algunas situaciones complicadas, veamos el siguiente CSS:
+
+```css
+.text-container div {
+  font-size: 1.5em;
+}
+```
+
+Nuestro selector ahora toma las etiquetas `div` hijas (a cualquier nivel) del elemento con la clase `.text-container`, haciendo que nuestros textos tengan un tamaño cada vez mayor dependiendo cuán anidados estén. (Debido a que el primer padre con un font-size definido ahora será un div arriba del otro)
+
+![em problem](img/em.PNG 'em problem')
